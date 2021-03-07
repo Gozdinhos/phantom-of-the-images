@@ -9,10 +9,13 @@
     <div class="navbar">
         <p>PHANTOM OF THE IMAGES</p>
     </div>
-    <div class="upload-section">
-        <input type="file" class="uploaded-file" id ='uploaded_file'/>
+    <div class="upload-section" id="upload-section" >
+        <input type="file" class="uploaded-file" id ='uploaded_file' />
         <div id="imgTest"></div>
-        <img src="" alt="">
+        <canvas width="500px" height="500px" class="" id="img-canvas"></canvas>
+    </div>
+    <div class="manipulation">
+        <button onclick="showChannels()" class="" id="channel-btn">SHOW CHANNELS</button>
     </div>
     <script src="script.js"></script>
 </body>
