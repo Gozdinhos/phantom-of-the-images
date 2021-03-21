@@ -31,6 +31,38 @@ function showChannels() {
     imageData.data[index + 1] = newVal;
     imageData.data[index + 2] = newVal;
   }
-  console.log(imageData);
+
+  const resizer = imageData.data.filter(function (value, index, Arr) {
+    return index % 4 == 0;
+  });
+
+  let size = 15625;
+  let chunkedArray = [];
+  for (let i = 0; i < resizer.length; i += size) {
+    chunkedArray.push(resizer.slice(i, i + size));
+  }
+
+  const coefficient = chunkedArray.map((array) => array.reduce((a, b) => a + b, 0) % 7);
+
+  let musicNotes = {
+    0: 'A',
+    1: 'B',
+    2: 'C',
+    3: 'D',
+    4: 'E',
+    5: 'F',
+    6: 'G',
+  };
+
+  console.log('coef', coefficient);
+  console.log(musicNotes, typeof musicNotes);
+
+  console.log('chunkedArray', chunkedArray);
+  console.log('resizer', resizer.length);
+  console.log('chunkedİLKARRay', chunkedArray[0]);
+  console.log('deneme', 4048 % 7);
+
+  console.log('imagedata', imageData.data);
+  console.log('rchunk', resizer);
   imgContext.putImageData(imageData, 0, 0);
 }
